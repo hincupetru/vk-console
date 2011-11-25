@@ -1,6 +1,6 @@
 # VK-Console
 
-Ruby wrapper for vk.com API 
+Ruby console for vk.com API 
 
 ## Install
 
@@ -36,14 +36,6 @@ console.audio.search(:q => 'sting').each{|track| puts track.inspect}
                      "url"=>"http://cs5048.vkontakte.ru/u4719192/audio/7febac4a2ed8.mp3"}
 ....
 ```
-
-## Examples
-
- https://github.com/zinenko/vk-console/tree/master/example
-
-## Tests
-
-Coming soon!
 
 ## Contributing to vk-ruby
  
