@@ -27,12 +27,12 @@ module VK
         resp = http(:host => 'login.vk.com').post '/', (form.map{|k,v| "#{k}=#{v}"}).join('&')
         resp = http( :host => 'vkontakte.ru', :port => 80, :ssl => false ).get resp.response['Location'], { 'Cookie' =>  resp.response['set-cookie'] }
         header = { 'Cookie' =>  resp.response['set-cookie'] }
-        
+
         # application authorization
         p = {:client_id => @app_id, :scope => @scope, :display => :page, :redirect_uri => 'http://api.vkontakte.ru/blank.html', :response_type => :token}
         resp = http( :ssl => false , :port => 80).get "/oauth/authorize?" + (p.map{|k,v| "#{k}=#{v}" }).join('&'), header
         params = ''
-        resp.body.gsub(/function approve\(\)\s?\{\s*location\.href = \"https\:\/\/api.vk.com\/oauth\/grant_access\?(.+?)\"\;\s*\}/m){ params = $1 }
+        resp.body.gsub(/function approve\(\)\s?\{\s*location\.href = \"https\:\/\/oauth.vk.com\/grant_access\?(.+?)\"\;\s*\}/m){ params = $1 }
         resp = http.get '/oauth/grant_access?' + params, header
         location = resp['Location']
         @access_token = location.split('access_token=')[1].split('&')[0]
