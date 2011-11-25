@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{vk-console}
-  s.version = "0.1.0"
+  s.name = "vk-console"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Andrew Zinenko}]
-  s.date = %q{2011-08-20}
-  s.description = %q{ Ruby console for vk.com API }
-  s.email = %q{zinenkoan@gmail.com}
+  s.authors = ["Andrew Zinenko"]
+  s.date = "2011-11-25"
+  s.description = " Ruby console for vk.com API "
+  s.email = "zinenkoan@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md"
@@ -25,16 +25,14 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
-    "example/audio_sync/audio_sync.rb",
-    "example/audio_sync/config.yml.example",
     "lib/vk-console.rb",
     "vk-console.gemspec"
   ]
-  s.homepage = %q{http://github.com/zinenko/vk-console}
-  s.licenses = [%q{MIT}]
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.6}
-  s.summary = %q{Ruby console for vk.com API}
+  s.homepage = "http://github.com/zinenko/vk-console"
+  s.licenses = ["MIT"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.8.10"
+  s.summary = "Ruby console for vk.com API"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
