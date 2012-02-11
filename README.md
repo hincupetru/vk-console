@@ -1,4 +1,4 @@
-# VK-Console [![endorse](http://api.coderwall.com/zinenko/endorse.png)](http://coderwall.com/zinenko)
+# VK-Console [![endorse](http://api.coderwall.com/zinenko/endorsecount.png)](http://coderwall.com/zinenko)
 
 Ruby console for vk.com API 
 
