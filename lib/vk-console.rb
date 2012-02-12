@@ -37,7 +37,7 @@ module VK
         params = {:client_id => @app_id, 
                   :scope => @settings, 
                   :display => :page, 
-                  :redirect_uri => 'http://api.vkontakte.ru/blank.html', 
+                  :redirect_uri => 'http://api.vk.com/blank.html', 
                   :response_type => :token}
 
         page = agent.get 'http://api.vk.com/oauth/authorize?' + (params.map{|k,v| "#{k}=#{v}" }).join('&')
