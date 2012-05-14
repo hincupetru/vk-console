@@ -37,16 +37,14 @@ module VK
         params = {:client_id => @app_id, 
                   :scope => @settings, 
                   :display => :page, 
-                  :redirect_uri => 'http://api.vk.com/blank.html', 
+                  :redirect_uri => 'http://oauth.vk.com/blank.html', 
                   :response_type => :token}
 
-        page = agent.get 'http://api.vk.com/oauth/authorize?' + (params.map{|k,v| "#{k}=#{v}" }).join('&')
+        page = agent.get 'http://oauth.vk.com/authorize?' + (params.map{|k,v| "#{k}=#{v}" }).join('&')
 
-        uri = agent.get(page.body[/\A.*function\s*approve\(\)\s?\{\s*location\.href\s*=\s*\"(.+?)\"\;\s*\}.*\z/m, 1]).uri
+        reg = /^http:\/\/oauth\.(vkontakte\.ru|vk\.com)\/.+\#access_token=(.*?)&expires_in=(.*?)&user_id=(.*?)$/
 
-        reg = /\Ahttp:\/\/api\.(vkontakte\.ru|vk\.com)\/.+\#access_token=(.*?)&expires_in=(.*?)&user_id=(.*?)\z/
-
-        @access_token, @expires_in, @user_id = *uri.to_s.match(reg)[2..4]
+        @access_token, @expires_in, @user_id = *(page.uri).to_s.match(reg)[2..4]
       end
 
       @access_token && @expires_in && @user_id
