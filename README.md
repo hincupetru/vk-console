@@ -12,7 +12,7 @@ irb
 ruby-1.9.2-p290 :001 > require 'vk-console'
 ruby-1.9.2-p290 :006 > console = VK::Console.new :app_id => 'APP_ID', 
                                                  :email => 'example@gmail.com', 
-                                                 :password => 'you_password', 
+                                                 :password => 'your_password', 
                                                  :logger => $STDOUT,
                                                  :settings => 'friends,photos,audio'
                                                  :debug => false
