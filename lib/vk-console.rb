@@ -25,7 +25,7 @@ module VK
       agent = Mechanize.new
 
       # user login
-      login_page = agent.get 'http://vk.com'
+      login_page = agent.get 'http://vk.com/login.php'
       login_page.forms.first.email = @email
       login_page.forms.first.pass = @password
 
@@ -36,11 +36,11 @@ module VK
         # application authorize
         params = {:client_id => @app_id, 
                   :scope => @settings, 
-                  :display => :page, 
                   :redirect_uri => 'http://oauth.vk.com/blank.html', 
                   :response_type => :token}
 
         page = agent.get 'http://oauth.vk.com/authorize?' + (params.map{|k,v| "#{k}=#{v}" }).join('&')
+        page.forms.first
 
         reg = /^http:\/\/oauth\.(vkontakte\.ru|vk\.com)\/.+\#access_token=(.*?)&expires_in=(.*?)&user_id=(.*?)$/
 
