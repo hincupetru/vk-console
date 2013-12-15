@@ -3,7 +3,7 @@ require 'vk-ruby'
 require 'mechanize'
 
 module VK
-  class Console < Standalone
+  class Console < Application
     VERSION = '0.2.1'
 
     def initialize(p={})
